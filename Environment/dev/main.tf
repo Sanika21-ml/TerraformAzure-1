@@ -40,3 +40,28 @@ module "app-service" {
   
     depends_on = [ module.resource-group ]
 }
+
+module "storage-account" {
+    source = "../../Modules/storage-account"
+    rg = var.rg
+    location = var.location
+    storage = var.storage
+    storage_account_tier = var.storage_account_tier
+    storage_replication_type = var.storage_replication_type
+
+    depends_on = [ module.resource-group ]
+  
+}
+
+module "function-app" {
+    source = "../../Modules/function-app"
+    appname = var.appname
+    function-plan = var.function-plan
+    os-typefunc = var.os-typefunc
+    sku-func = var.sku-func
+    storage_name = module.storage-account.storage_name
+    primary_key = module.storage-account.primary_key
+
+    depends_on = [ module.resource-group, module.storage-account ]
+  
+}

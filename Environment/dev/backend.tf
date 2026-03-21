@@ -1,5 +1,3 @@
-
-    
 terraform {
   backend "azurerm" {
     resource_group_name  = "backend-storage"
@@ -7,4 +5,4 @@ terraform {
     container_name = "backend" 
     key = "terraform.tfstate"
   }
-}
+} 

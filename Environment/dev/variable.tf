@@ -1,7 +1,6 @@
 
 variable "rg" {
     description = "resource group name"
-    default = "RG-Gitdemo"
   
 }
 
@@ -12,7 +11,7 @@ variable "location" {
 
 variable "vmname" {
     description = "virtual machine name"
-    default = "machine1"
+    default = "vm"
   
 }
 
@@ -60,20 +59,18 @@ variable "os_caching" {
 }
 
 variable "vm_storage" {
-    default = "Standard_LRS"
+    description = "storage vm"
   
 }
 
-
-
 variable "skuimage" {
-    default = "22_04-lts"
+    description = "sku image of vm"
   
 }
 
 variable "offerimagevm" {
     description = "image offer"
-    default = "0001-com-ubuntu-server-jammy"
+  
   
 }
 
@@ -96,33 +93,66 @@ variable "address_space" {
 
 variable "vnetname" {
     description = "vnet name"
-    default = "network-g"
   
 }
 
 variable "subnetname" {
     description = "subnet name"
-    default = "subnet-1"
   
 }
 
 variable "address_prefixes" {
     description = "address prefixes for subnet"
-    default = ["10.0.1.0/24"]
+
   
 }
 
 variable "plan" {
     description = "app service plan "
-    default = "app-plan-1122"
 }
 
 variable "os_type" {
-    default = "Windows"
+    description = "os type of app service"
   
 }
 
 variable "sku_name" {
-    default = "D1"
+    description = "sku name of app service"
+  
+}
+
+variable "storage" {
+    description = "storage account name"
+  
+}
+
+variable "storage_account_tier" {
+  description = "Storage account tier"
+  type        = string
+}
+
+variable "storage_replication_type" {
+  description = "Replication type"
+  type        = string
+}
+
+variable "appname" {
+    description = "app name"
+
+}
+
+variable "function-plan" {
+    description = "function app name"
+   
+  
+}
+
+variable "os-typefunc" {
+    description = "os type of function app"
+  
+}
+
+variable "sku-func" {
+    description = "sku of function app"
   
 }

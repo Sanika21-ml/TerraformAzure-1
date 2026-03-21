@@ -1,7 +1,7 @@
 variable "rg" {
     description = "resource group name"
-    default = "RG-Git-TF"
-  
+    default = "RG-TF"
+
 }
 
 variable "location" {

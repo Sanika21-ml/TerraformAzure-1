@@ -7,6 +7,24 @@ resource "azurerm_public_ip" "pip" {
   sku = var.sku_ip 
 }
 
+resource "azurerm_network_security_group" "nsg" {
+  name = "acceptanceTestSecurityGroup1"
+  location = var.location
+  resource_group_name = var.rg
+
+  security_rule {
+    name = "test123"
+    priority = 100
+    direction = "Inbound"
+    access = "Allow"
+    protocol = "Tcp"
+    source_port_range = "*"
+    destination_port_range = "*"
+    source_address_prefix = "*"
+    destination_address_prefix = "*"
+  }
+}
+
 resource "azurerm_network_interface" "nic" {
   name = "${var.vmname}-nic"
   location = var.location
